@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorial's Amor Eterno</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="bg-light">
+
+    <!-- Login Form -->
+    <div id="login-form" class="container-fluid">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="card shadow-lg">
+                    <div class="card-body text-center">
+                        <img src="amor_eterno_logo.jpg" alt="Logo amor eterno" class="img-fluid mx-auto d-block" style="width: 150px; height: 150px;">
+                        <h1 class="h4 fw-bold mb-3">Iniciar Sesión</h1>
+                        <form onsubmit="iniciarSesion(event)">
+                            <div class="mb-3 text-start">
+                                <label for="email" class="form-label">Correo Electrónico:</label>
+                                <input class="form-control" placeholder="Ingrese su correo" id="email" name="Email" type="email" required />
+                            </div>
+                            <div class="mb-3 text-start">
+                                <label for="pass" class="form-label">Contraseña:</label>
+                                <input class="form-control" placeholder="Ingrese su contraseña" id="pass" name="Password" type="password" required />
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container-fluid d-none">
+        <div class="row">
+            <div class="top-bar bg-success text-white d-flex justify-content-between align-items-center ">
+              <button id="sidebarToggle" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarContent" aria-expanded="false" aria-controls="sidebarContent">
+                <i class="bi bi-list"></i> <!-- Cambiado a ícono de hamburguesa -->
+            </button>
+            <h1 style="font-family: 'Playfair Display', serif; font-weight: 300; ">Memorial's Amor Eterno</h1>
+
+                <div id="user-info">
+                    <span>Bienvenido, <strong>Diego</strong></span>
+                    <a href="#" class="btn btn-danger text-white ms-3" onclick="cerrarSesion()">Salir </a>
+                </div>
+               <!-- <button id="sidebarToggle" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarContent" aria-expanded="false" aria-controls="sidebarContent">
+                  <i class="bi bi-list"></i> Cambiado a ícono de hamburguesa 
+              </button>-->
+            </div>
+<!-- Sidebar con botones usando collapse -->
+<nav id="sidebarContent" name="side" class="border-right min-vh-100 h-100 col-sm-12 col-md-6 col-lg-4 bg-light">
+    <!-- Botón Caja con collapse -->
+    <div class="d-flex">
+      <div class="sidebarContent"></div>
+      <button class="bg-transparent border-0 w-100 mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCaja" aria-expanded="false" aria-controls="collapseCaja">
+        <i class="bi bi-tag fs-4"></i> Caja
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="bg-secondary collapse mb-3" id="collapseCaja">
+      <ul class="bg-secondary list-group">
+        <li class="bg-light list-group-item text-wrap"><a class="dropdown-item" href="#">Cobro</a></li>
+        <li class="bg-light list-group-item text-wrap"><a class="dropdown-item" href="#">Ventas</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Recibos Cliente</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Vales</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Monitor con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitor" aria-expanded="false" aria-controls="collapseMonitor">
+        <i class="fs-4 bi bi-basket"></i> Monitor
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseMonitor">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Monitor de Cobros</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Monitor de Ventas</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Reporte Cobro con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReporteCobro" aria-expanded="false" aria-controls="collapseReporteCobro">
+        <i class="p-2 fs-4 bi bi-receipt"></i>Reporte Cobro
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseReporteCobro">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Estadísticas Visitas</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Cliente Sin Visita</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Cliente Sin Cobro</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Recibo Nulos</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">No Estaba</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Estadísticas Cobradores</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">No Quiere Continuar</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Reporte de Ventas con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReporteVentas" aria-expanded="false" aria-controls="collapseReporteVentas">
+        <i class="fs-4 bi bi-bar-chart"></i>Reporte de Ventas
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseReporteVentas">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Ventas Rend</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Ventas Detalladas x Fecha</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Ventas Resendidas</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Firmas De Cliente</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Informes con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInformes" aria-expanded="false" aria-controls="collapseInformes">
+        <i class="fs-4 bi bi-file-earmark-bar-graph"></i> Informes
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseInformes">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Reporte Días Laborales</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Entrega x Fecha</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Clientes con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
+        <i class="fs-4 bi bi-people"></i> Clientes
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseClientes">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Movimientos</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Informe</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Ihumados</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Historia De Visitas</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Traslado Cliente</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Inventario con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInventario" aria-expanded="false" aria-controls="collapseInventario">
+        <i class="fs-4 bi bi-box"></i> Inventario
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseInventario">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Consulta Inventario</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Entrada de Mercancías</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Salida de Mercancías</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Entregas SPS</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Traslado de Inventario</a></li>
+      </ul>
+    </div>
+
+    <!-- Botón Mantenimiento con collapse -->
+    <div class="d-flex">
+      <button class="bg-transparent border-0 w-100 border border-light btn-lg mb-3 text-wrap text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMantenimiento" aria-expanded="false" aria-controls="collapseMantenimiento">
+        <i class="fs-4 bi bi-wrench"></i> Mantenimiento
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse mb-3" id="collapseMantenimiento">
+      <ul class="list-group">
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Mantenimiento 1</a></li>
+        <li class="list-group-item text-wrap"><a class="dropdown-item" href="#">Mantenimiento 2</a></li>
+      </ul>
+    </div>
+  </nav>
+
+            
+
+            <!-- Contenido principal -->
+            <div class="col-sm-12 col-md-6 col-lg-8 bg-white">
+            <!--<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">-->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2 class="h2">Monitor de Ventas</h2>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>Aquí puedes agregar el contenido principal de la página.</p>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Ejemplo de tarjeta</h5>
+                        <p class="card-text">Este es un ejemplo de contenido en una tarjeta. Puedes agregar más información aquí.</p>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Función para iniciar sesión
+        function iniciarSesion(event) {
+            event.preventDefault(); 
+            const correoCorrecto = "diegoespinal485@gmail.com";
+            const contraseñaCorrecta = "papi"; 
+
+            const correoIngresado = document.getElementById("email").value;
+            const contraseñaIngresada = document.getElementById("pass").value;
+
+            if (correoIngresado === correoCorrecto && contraseñaIngresada === contraseñaCorrecta) {
+                alert("Inicio de sesión exitoso");
+                document.getElementById('login-form').classList.add('d-none');
+                document.getElementById('main-content').classList.remove('d-none');
+            } else {
+                alert("Correo o contraseña incorrectos. Inténtelo de nuevo.");
+            }
+        }
+
+        // Función para cerrar sesión
+        function cerrarSesion() {
+            document.getElementById('main-content').classList.add('d-none');
+            document.getElementById('login-form').classList.remove('d-none');
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
